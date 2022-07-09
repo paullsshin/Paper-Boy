@@ -1,0 +1,12 @@
+.nav-wrapper{
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+}
