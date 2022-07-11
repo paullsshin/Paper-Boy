@@ -13,23 +13,39 @@
 
 .search-bar {  
     float: left;  
+    width: 25%;
+    margin-top: 40px;
     }  
-    input[type=text] {  
+
+ input[type=text] {  
     padding: 6px;  
     margin-top: 8px;  
     font-size: 17px;  
     border: none;  
+ 
     }  
-    .searchbox button {  
+    .search-bar button {  
       
     padding: 8px;  
     margin-top: 10px;  
     margin-left: 10px;  
-    background: orange;  
+    background: rgb(255, 13, 0);  
     font-size: 20px;  
     border: none;  
     cursor: pointer;  
     }  
-    .searchbox button:hover {  
+    .search-bar button:hover {  
     background: blue;  
     }  
+
+.breaking-news {
+    position: absolute;
+    float: left;
+    top: 20%;
+    width: 25%;
+    height: 10%;
+}
+
+.row {
+    font-size: 18px;
+}
