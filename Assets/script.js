@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // FREE NEWS API - BY COUNTRY
 
 // const options = {
@@ -33,7 +32,5 @@ fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true',
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 });
-=======
 var breakingNews = document.getElementById("breaking-news");
 
->>>>>>> b3945018218805ebc4fbdd1ff9cdfd1e6d36f136
