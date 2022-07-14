@@ -4,6 +4,9 @@
     height: auto;
     justify-content: space-between;
 }
+main{
+    margin: 2%;
+}
 
 .logo {
     display: flex;
