@@ -27,10 +27,25 @@ const options = {
 };
 
 submitBtn.addEventListener('click', function () {
-fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', options)
+	    .then(response => response.json())
+	    .then(response => renderBreakingNews(response))
+	    .catch(err => console.error(err));
 });
+
 var breakingNews = document.getElementById("breaking-news");
 
+function renderBreakingNews(data) {
+    // For loop iterates through data
+    var articles = [];
+    for (var i = 0; i < 1; i++ ) {
+        // var myArray = [title, link]
+        console.log(data[i].title);
+        // (data[i].title).push();
+        articles.push(data[i].title);
+        console.log(articles);
+    }
+
+    breakingNews.innerHTML = '';
+    breakingNews.append(articles);
+}
