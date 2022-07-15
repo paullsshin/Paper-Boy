@@ -7,9 +7,6 @@ root{
     --red:   #e63946;
 }
 
-nav{
-    color:  var(--dBLue);
-}
 
 
 .nav-wrapper{
@@ -20,6 +17,7 @@ nav{
     justify-content: space-between;
     
 }
+
 main{
     margin: 2%;
 }
