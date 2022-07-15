@@ -55,6 +55,20 @@ window.addEventListener('load', function () {
 
 
 var breakingNews = document.getElementById("breaking-news");
+submitBtn.addEventListener('click', function () {
+    
+});
+
+var breakingNews = document.getElementById("breaking-news");
+
+function getBreakingNews() {
+
+    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', options)
+	    .then(response => response.json())
+	    .then(response => renderBreakingNews(response))
+	    .catch(err => console.error(err));
+
+}
 
 function renderBreakingNews(data) {
     // For loop iterates through data
@@ -72,3 +86,5 @@ function renderBreakingNews(data) {
     breakingNews.innerHTML = '';
     breakingNews.append(articles);
 }
+
+getBreakingNews();
