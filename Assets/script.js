@@ -63,7 +63,7 @@ var breakingNews = document.getElementById("breaking-news");
 
 function getBreakingNews() {
 
-    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', options)
+    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', optionsBreakingNews)
 	    .then(response => response.json())
 	    .then(response => renderBreakingNews(response))
 	    .catch(err => console.error(err));
