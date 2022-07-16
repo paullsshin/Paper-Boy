@@ -36,7 +36,7 @@ function renderFreeNews(data) {
                 <p class="content">${data.articles[i].summary}</p>
               </div>
               <div class="card-action">
-                <a href="${data.articles[i].link}">Go to Article</a>
+                <a href="${data.articles[i].link}" target="blank">Go to Article</a>
                 <button class = "btn cyan lighten-1" href="#">Favorite</button>
               </div>
             </div>
@@ -65,20 +65,58 @@ const optionsBreakingNews = {
 	}
 };
 
-window.addEventListener('load', function () {
-    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', optionsBreakingNews)
-	    .then(response => response.json())
-	    .then(response => renderBreakingNews(response))
-        .then(response => console.log(response))  
-});
-
-
-var breakingNews = document.getElementById("breaking-news");
-submitBtn.addEventListener('click', function () {
+function renderBreakingNews(data) {
+    // For loop iterates through data
+    console.log(data)
+    // var articles = [];
     
-});
+    
+    //recursive function might be easier
+    //could save everything into carasel ( might not be the case for materialize )
 
-var breakingNews = document.getElementById("breaking-news");
+
+    // future feature to be added in order to cycle through articles
+    //for (var i = 0; i < 1; i++ ) {
+        
+
+
+        var breakingCard = 
+        `
+         <!-- Turns the news container to a dark red -->
+          <div class="card red darken-3">
+            <div class="card-content white-text">
+              <span class="card-title">Breaking News!</span>
+              <p class ="breaking-news">${data[0].title}</p>
+            </div>
+            <div class="card-action">
+              <a href="${data[0].link}" target="blank">Go to Article</a>
+              <!-- Add color to the favorite button -->
+              <button class = "btn cyan lighten-1" href="#">Favorite</button>
+              <button class = "btn cyan lighten-1" href="#">Next</button>
+            </div>
+          </div>
+        `
+    //}
+    console.log(breakingCard)
+    var breakingNews = $(".breaking-news");
+    breakingNews.append(breakingCard);
+}
+
+// window.addEventListener('load', function () {
+//     fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', optionsBreakingNews)
+// 	    .then(response => response.json())
+// 	    .then(response => renderBreakingNews(response))
+//         .then(response => console.log(response))  
+// });
+
+
+// var breakingNews = document.getElementById("breaking-news");
+// submitBtn.addEventListener('click', function () {
+    
+// });
+
+
+
 
 function getBreakingNews() {
 
@@ -89,21 +127,7 @@ function getBreakingNews() {
 
 }
 
-function renderBreakingNews(data) {
-    // For loop iterates through data
-    var articles = [];
-    //recursive function might be easier
-    //could save everything into carasel ( might not be the case for materialize )
-    for (var i = 0; i < 1; i++ ) {
-        // var myArray = [title, link]
-        console.log(data[i].title);
-        // (data[i].title).push();
-        articles.push(data[i].title);
-        console.log(articles);
-    }
 
-    breakingNews.innerHTML = '';
-    breakingNews.append(articles);
-}
+
 
 getBreakingNews();
