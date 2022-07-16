@@ -1,5 +1,7 @@
 // FREE NEWS API - BY COUNTRY
 
+var input = document.getElementById("userInput").value;
+
 const optionsFreeNews = {
 	method: 'GET',
 	headers: {
@@ -13,6 +15,7 @@ submitBtn.addEventListener('click', function () {
 	.then(response => response.json())
 	.then(response => renderFreeNews(response))
 	.catch(err => console.error(err));
+    console.log(input)
 });
 
 
@@ -28,21 +31,21 @@ function renderFreeNews(data) {
         var card = 
         `
         <div class="row">
-          <div class="col">
-            <!-- changes background color to the card. -->
-            <div class="card light-blue lighten-4">
-              <div class="card-content white-text">
-                <span class="card-title">${data.articles[i].title}</span>
-                <p class="content">${data.articles[i].summary}</p>
-              </div>
-              <div class="card-action">
-                <a href="${data.articles[i].link}">Go to Article</a>
-                <button class = "btn cyan lighten-1" href="#">Favorite</button>
-              </div>
+        <div class="col s12">
+          <!-- changes background color to the card. -->
+          <div class="card light-blue lighten-4">
+            <div class="card-content white-text">
+              <span class="card-title">${data.articles[i].title}</span>
+              <p class="content">${data.articles[i].summary}</p>
+            </div>
+            <div class="card-action">
+              <a href="${data.articles[i].link}">Go to Article</a>
+              <button class = "btn cyan lighten-1" href="#">Favorite</button>
             </div>
           </div>
         </div>
-       `
+      </div>
+      `
     var newsByCountry = $(".free-news-container");
     newsByCountry.append(card);
     
