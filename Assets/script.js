@@ -11,28 +11,30 @@ const optionsFreeNews = {
 submitBtn.addEventListener('click', function () {
     fetch('https://free-news.p.rapidapi.com/v1/search?q=Canada', optionsFreeNews)
 	.then(response => response.json())
-	.then(response => console.log(response))
+	.then(response => renderFreeNews(response))
 	.catch(err => console.error(err));
 });
 
 var newsByCountry = document.getElementsByClassName("free-news-container");
 
-// function renderBreakingNews(data) {
-//     // For loop iterates through data
-//     var articles = [];
-//     //recursive function might be easier
-//     //could save everything into carasel ( might not be the case for materialize )
-//     for (var i = 0; i < 1; i++ ) {
-//         // var myArray = [title, link]
-//         console.log(data[i].title);
-//         // (data[i].title).push();
-//         articles.push(data[i].title);
-//         console.log(articles);
-//     }
+function renderFreeNews(data) {
+    // For loop iterates through data
+    var countryArticles = [];
+    //recursive function might be easier
+    //could save everything into carasel ( might not be the case for materialize )
+    for (var i = 0; i < 5; i++ ) {
+        // var myArray = [title, link]
+        // (data[i].title).push();
+        console.log(data[i].title);
+        countryArticles.push(data[i].title);
+        console.log(countryArticles);
+    }
 
-//     breakingNews.innerHTML = '';
-//     breakingNews.append(articles);
-// }
+    newsByCountry.innerHTML = '';
+    newsByCountry.append(countryArticles);
+}
+renderFreeNews();
+
 
 
 
@@ -63,7 +65,7 @@ var breakingNews = document.getElementById("breaking-news");
 
 function getBreakingNews() {
 
-    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', options)
+    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', optionsBreakingNews)
 	    .then(response => response.json())
 	    .then(response => renderBreakingNews(response))
 	    .catch(err => console.error(err));
