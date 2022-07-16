@@ -7,7 +7,7 @@ const optionsFreeNews = {
 		'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
 	}
 };
-
+// var searchCountryName = document.get
 submitBtn.addEventListener('click', function () {
     fetch('https://free-news.p.rapidapi.com/v1/search?q=Canada', optionsFreeNews)
 	.then(response => response.json())
@@ -15,25 +15,42 @@ submitBtn.addEventListener('click', function () {
 	.catch(err => console.error(err));
 });
 
-var newsByCountry = document.getElementsByClassName("free-news-container");
+
 
 function renderFreeNews(data) {
-    // For loop iterates through data
-    var countryArticles = [];
-    //recursive function might be easier
-    //could save everything into carasel ( might not be the case for materialize )
+    console.log(data);
+    // newsByCountry.innerHTML = '';
+
+    //prints title to each card
+    //prints content to each card
     for (var i = 0; i < 5; i++ ) {
-        // var myArray = [title, link]
-        // (data[i].title).push();
-        console.log(data[i].title);
-        countryArticles.push(data[i].title);
-        console.log(countryArticles);
+        
+        var card = 
+        `
+        <div class="row">
+        <div class="col s12">
+          <!-- changes background color to the card. -->
+          <div class="card light-blue lighten-4">
+            <div class="card-content white-text">
+              <span class="card-title">${data.articles[i].title}</span>
+              <p class="content">${data.articles[i].summary}</p>
+            </div>
+            <div class="card-action">
+              <a href="${data.articles[i].link}">Go to Article</a>
+              <button class = "btn cyan lighten-1" href="#">Favorite</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      `
+    var newsByCountry = $(".free-news-container");
+    newsByCountry.append(card);
+    
     }
 
-    newsByCountry.innerHTML = '';
-    newsByCountry.append(countryArticles);
+    
 }
-renderFreeNews();
+
 
 
 
