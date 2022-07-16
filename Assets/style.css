@@ -1,9 +1,23 @@
+/* Sets up the color variables */
+root{
+    --dBlue: #1d3557; 
+    --mBlue: #45769d;
+    --lBlue: #a8dadc;
+    --white: #f1faee;
+    --red:   #e63946;
+}
+
+
+
 .nav-wrapper{
+    
     display: flex;
     max-width: 100%;
     height: auto;
     justify-content: space-between;
+    
 }
+
 main{
     margin: 2%;
 }
