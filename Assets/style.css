@@ -18,6 +18,10 @@ root{
     
 }
 
+body {
+    background-color: #bdbdbd;
+}
+
 main{
     margin: 2%;
 }
