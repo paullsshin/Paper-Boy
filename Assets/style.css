@@ -57,6 +57,9 @@ main{
     font-size: 18px;
 }
 
+#paper-boy {
+    padding-top: 5%;
+}
 .history-btn {
     text-align: center;
     display: inline-block;

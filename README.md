@@ -3,7 +3,7 @@
 <!-- deployed application -->
 ## **Description** 📚
 
-*Paper Boy* is an application designed for people who are interested in wanting to find out more about events that are happening globally. Users can select any country from a drop-down menu as well as a category to generate news from the user's criteria. Once the user is able to access the news they requested, they can favorite an article so they can access the article later if they choose to. The user can also store more than one favorite article. The user will also be able to view any breaking news that is currently going on. The breaking news articles will cycle through after being on the page for a given amount of time.
+*Paper Boy* is an application designed for people who are interested in wanting to find out about events that are happening globally. Users can select any country from a drop-down menu. Once the user submits the request, news will be generated from that specific country enabling them to see up to 5 current events that are happening there. Also underneath the drop-down menu, there is a section for breaking news the user will be able to see one article that is currently considered "breaking news".
 
 <hr>
 
@@ -20,11 +20,9 @@
 ## **Installation** ⚙️
 <hr>
 
-### For News Enthusiasts
-
-<!-- Visit the deployed website -->
 
 ### For Developers
+Visit our repository to reference: any materials, our process in developing the web page, and the people involved in creating the web page.
 
 
 
