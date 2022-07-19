@@ -152,3 +152,10 @@ getBreakingNews();
 // clicking on favorite, set eventlistener to capture article data etc.,
 // save data to local storage, pull data from local storage and then render to favorites page
 // 
+
+document.getElementById("submitBtn").onclick = function () {
+  document.getElementById("paper-boy").style.display = "none";
+}
+// document.getElementById("start-it").onclick = function () {
+//   document.getElementById("welcome").style.visibility = "hidden";
+// }
