@@ -7,13 +7,24 @@ const optionsFreeNews = {
 		'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
 	}
 };
+
+
+
 // var searchCountryName = document.get
 submitBtn.addEventListener('click', function () {
-    fetch('https://free-news.p.rapidapi.com/v1/search?q=Canada', optionsFreeNews)
+    fetch('https://free-news.p.rapidapi.com/v1/search?q=' + selectCountry + '&lang=en', optionsFreeNews)
 	.then(response => response.json())
 	.then(response => renderFreeNews(response))
 	.catch(err => console.error(err));
 });
+
+var selectCountry = document.querySelector('select');
+var result = '';
+
+selectCountry.addEventListener('change', () => {
+  selectCountry = selectCountry.options[selectCountry.selectedIndex].text;
+  console.log(selectCountry)
+})
 
 
 
@@ -37,7 +48,7 @@ function renderFreeNews(data) {
               </div>
               <div class="card-action">
                 <a href="${data.articles[i].link}" target="blank">Go to Article</a>
-                <button class = "btn cyan lighten-1" href="#">Favorite</button>
+                <button class = "btn cyan lighten-1 favorite-btn" href="#">Favorite</button>
               </div>
             </div>
           </div>
@@ -91,7 +102,7 @@ function renderBreakingNews(data) {
             <div class="card-action">
               <a href="${data[0].link}" target="blank">Go to Article</a>
               <!-- Add color to the favorite button -->
-              <button class = "btn cyan lighten-1" href="#">Favorite</button>
+              <button class = "btn cyan lighten-1 favorite-btn" href="#">Favorite</button>
               <button class = "btn cyan lighten-1" href="#">Next</button>
             </div>
           </div>
@@ -131,3 +142,13 @@ function getBreakingNews() {
 
 
 getBreakingNews();
+
+// var favoriteBtn = document.getElementsByClassName(".favorite-button")
+
+// favoriteBtn.addEventListener('click', function () {
+//     console.log("button click");
+// });
+
+// clicking on favorite, set eventlistener to capture article data etc.,
+// save data to local storage, pull data from local storage and then render to favorites page
+// 
