@@ -1,9 +1,61 @@
-// FREE NEWS API - BY COUNTRY
+var searchHistory = [];
+var searchHistoryContainer = document.querySelector('#history');
 
+// Function to display the search history list.
+function renderSearchHistory() {
+    searchHistoryContainer.innerHTML = '';
+  
+    // Start at end of history array and count down to show the most recent at the top.
+    for (var i = searchHistory.length - 1; i >= 0; i--) {
+      var btn = document.createElement('button');
+      btn.setAttribute('type', 'button');
+      btn.setAttribute('aria-controls');
+      btn.classList.add('history-btn', 'btn-history');
+  
+      // `data-search` allows access to city name when click handler is invoked
+      btn.setAttribute('data-search', searchHistory[i]);
+      btn.textContent = searchHistory[i];
+      searchHistoryContainer.append(btn);
+    }
+  }
+  
+  // Function to update history in local storage then updates displayed history.
+  function appendToHistory(search) {
+    // If there is no search term return the function
+    if (searchHistory.indexOf(search) !== -1) {
+      return;
+    }
+    searchHistory.push(search);
+  
+    localStorage.setItem('search-history', JSON.stringify(searchHistory));
+    renderSearchHistory();
+  }
+  
+  // Function to get search history from local storage
+  function initSearchHistory() {
+    var storedHistory = localStorage.getItem('search-history');
+    if (storedHistory) {
+      searchHistory = JSON.parse(storedHistory);
+    }
+    renderSearchHistory();
+  }
+
+  function handleSearchHistoryClick(e) {
+    // Don't do search if current elements is not a search history button
+    if (!e.target.matches('.btn-history')) {
+      return;
+    }
+  
+    var btn = e.target;
+    var search = btn.getAttribute('data-search');
+    selectCountry(search);
+  }
+
+// FREE NEWS API - BY COUNTRY
 const optionsFreeNews = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'e5f47a5545mshf7b0b0480e8a458p1e6668jsn6b3694c80c47',
+		'X-RapidAPI-Key': '73cb815fb9mshc2fa8107eefe7c8p12f2d6jsn4061f70be412',
 		'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
 	}
 };
@@ -12,27 +64,36 @@ const optionsFreeNews = {
 
 // var searchCountryName = document.get
 submitBtn.addEventListener('click', function () {
-    fetch('https://free-news.p.rapidapi.com/v1/search?q=' + selectCountry + '&lang=en', optionsFreeNews)
+    console.log(searchHistory);
+    searchHistory.push(storedCountry)
+    console.log(searchHistory);
+    localStorage.setItem('search-history', JSON.stringify(searchHistory));
+
+    fetch('https://free-news.p.rapidapi.com/v1/search?q=' + storedCountry + '&lang=en', optionsFreeNews)
 	.then(response => response.json())
 	.then(response => renderFreeNews(response))
 	.catch(err => console.error(err));
 });
 
 var selectCountry = document.querySelector('select');
+var storedCountry = "";
 var result = '';
 
 selectCountry.addEventListener('change', () => {
-  selectCountry = selectCountry.options[selectCountry.selectedIndex].text;
+  storedCountry = selectCountry.value;
   console.log(selectCountry)
+    console.log("Hello");
 })
 
 
 
 function renderFreeNews(data) {
     console.log(data);
-    // newsByCountry.innerHTML = '';
-
+    
     //prints title to each card
+    var newsByCountry = $(".free-news-container");
+    newsByCountry.html("");
+    
     //prints content to each card
     for (var i = 0; i < 5; i++ ) {
         
@@ -48,23 +109,18 @@ function renderFreeNews(data) {
               </div>
               <div class="card-action">
                 <a href="${data.articles[i].link}" target="blank">Go to Article</a>
-                <button class = "btn cyan lighten-1 favorite-btn" href="#">Favorite</button>
               </div>
             </div>
           </div>
         </div>
        `
-    var newsByCountry = $(".free-news-container");
     newsByCountry.append(card);
+
     
     }
 
     
 }
-
-
-
-
 
 // BREAKING NEWS API
 
@@ -101,9 +157,6 @@ function renderBreakingNews(data) {
             </div>
             <div class="card-action">
               <a href="${data[0].link}" target="blank">Go to Article</a>
-              <!-- Add color to the favorite button -->
-              <button class = "btn cyan lighten-1 favorite-btn" href="#">Favorite</button>
-              <button class = "btn cyan lighten-1" href="#">Next</button>
             </div>
           </div>
         `
@@ -159,3 +212,6 @@ document.getElementById("submitBtn").onclick = function () {
 // document.getElementById("start-it").onclick = function () {
 //   document.getElementById("welcome").style.visibility = "hidden";
 // }
+
+initSearchHistory();
+searchHistoryContainer.addEventListener('click', handleSearchHistoryClick);
