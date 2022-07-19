@@ -41,7 +41,7 @@ function renderFreeNews(data) {
         <div class="row">
           <div class="col">
             <!-- changes background color to the card. -->
-            <div class="card light-blue lighten-4">
+            <div class="card  blue darken-2">
               <div class="card-content white-text">
                 <span class="card-title">${data.articles[i].title}</span>
                 <p class="content">${data.articles[i].summary}</p>
