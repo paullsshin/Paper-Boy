@@ -102,7 +102,7 @@ function renderFreeNews(data) {
     newsByCountry.html("");
     
     //prints content to each card
-    for (var i = 0; i < 5; i++ ) {
+    for (var i = 0; i < 10; i++ ) {
         
         var card = 
         `
@@ -113,6 +113,7 @@ function renderFreeNews(data) {
               <div class="card-content white-text">
                 <span class="card-title">${data.articles[i].title}</span>
                 <p class="content">${data.articles[i].summary}</p>
+                
               </div>
               <div class="card-action">
                 <a href="${data.articles[i].link}" target="blank">Go to Article</a>
