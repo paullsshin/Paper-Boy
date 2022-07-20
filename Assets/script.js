@@ -1,4 +1,5 @@
 var searchHistory = [];
+var searchHistoryLength = searchHistory.length;
 var searchHistoryContainer = document.querySelector('#history');
 var saveSearchHistory = JSON.parse(localStorage.getItem("search-history"));
 if (saveSearchHistory){
@@ -22,7 +23,22 @@ function renderSearchHistory() {
       btn.setAttribute('data-search', searchHistory[i]);
       btn.textContent = searchHistory[i];
       searchHistoryContainer.append(btn);
+      console.log("hi");
       console.log(searchHistoryContainer);
+      console.log(searchHistory);
+
+      if( searchHistoryLength > 10){
+        console.log("hi");
+        searchHistory.pop();
+        console.log(searchHistory);
+      }
+      
+      
+      
+
+        
+        
+      
     }
   }
   
