@@ -4,6 +4,11 @@ var saveSearchHistory = JSON.parse(localStorage.getItem("search-history"));
 if (saveSearchHistory){
   searchHistory = saveSearchHistory;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
 var searchHistoryLength = searchHistory.length;
 console.log(searchHistoryLength);
 // Function to display the search history list.
@@ -17,18 +22,33 @@ function renderSearchHistory() {
       console.log(searchHistory);
       console.log("hi");
     }
+<<<<<<< HEAD
+=======
+=======
+// Function to display the search history list.
+function renderSearchHistory() {
+    searchHistoryContainer.innerHTML = '';
+    // console.log(searchHistoryContainer);
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+=======
+// Function to display the search history list.
+function renderSearchHistory() {
+    searchHistoryContainer.innerHTML = '';
+    // console.log(searchHistoryContainer);
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+>>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
     // Start at end of history array and count down to show the most recent at the top.
-    for (var i = searchHistory.length - 1; i >= 0; i--) {
+    for (var i = searchHistory.length[9] - 1; i >= 0; i--) {
       var btn = document.createElement('button');
       btn.setAttribute('type', 'button');
       // btn.setAttribute('aria-controls');
       btn.classList.add('history-btn', 'btn-history');
-      console.log(searchHistory);
+      // console.log(searchHistory);
       // `data-search` allows access to city name when click handler is invoked
       btn.setAttribute('data-search', searchHistory[i]);
       btn.textContent = searchHistory[i];
       searchHistoryContainer.append(btn);
-      console.log(searchHistoryContainer);
+      // console.log(searchHistoryContainer);
     }
   }
   // Function to update history in local storage then updates displayed history.
@@ -56,7 +76,7 @@ function renderSearchHistory() {
     }
     var btn = e.target;
     var search = btn.getAttribute('data-search');
-    selectCountry(search);
+    selectCountry(search)
   }
 // FREE NEWS API - BY COUNTRY
 const optionsFreeNews = {
@@ -68,31 +88,66 @@ const optionsFreeNews = {
 };
 // var searchCountryName = document.get
 submitBtn.addEventListener('click', function () {
-    console.log(searchHistory);
+    // console.log(searchHistory);
     searchHistory.push(storedCountry)
-    console.log(searchHistory);
+    // console.log(searchHistory);
     localStorage.setItem('search-history', JSON.stringify(searchHistory));
     fetch('https://free-news.p.rapidapi.com/v1/search?q=' + storedCountry + '&lang=en', optionsFreeNews)
   .then(response => response.json())
   .then(response => renderFreeNews(response))
+<<<<<<< HEAD
   .catch(err => console.error(err));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  .catch(err => console.error(err));
+=======
+  // .catch(err => console.error(err));
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+=======
+  // .catch(err => console.error(err));
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+>>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
 });
 var selectCountry = document.querySelector('select');
 var storedCountry = "";
 var result = '';
 selectCountry.addEventListener('change', () => {
   storedCountry = selectCountry.value;
-  console.log(selectCountry)
-    console.log("Hello");
+  // console.log(selectCountry)
+  //   console.log("Hello");
 })
 function renderFreeNews(data) {
+<<<<<<< HEAD
+<<<<<<< HEAD
     console.log(data);
+<<<<<<< HEAD
+=======
+=======
+    // console.log(data);
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+=======
+    // console.log(data);
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+>>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
     //prints title to each card
     var newsByCountry = $(".free-news-container");
     newsByCountry.html("");
     //prints content to each card
     for (var i = 0; i < 10; i++ ) {
+<<<<<<< HEAD
         var card =
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        var card =
+=======
+=======
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+
+        var card = 
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
+>>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
         `
         <div class="row">
           <div class="col">
@@ -122,7 +177,7 @@ const optionsBreakingNews = {
 };
 function renderBreakingNews(data) {
     // For loop iterates through data
-    console.log(data)
+    // console.log(data)
     // var articles = [];
     //recursive function might be easier
     //could save everything into carasel ( might not be the case for materialize )
@@ -142,7 +197,7 @@ function renderBreakingNews(data) {
           </div>
         `
     //}
-    console.log(breakingCard)
+    // console.log(breakingCard)
     var breakingNews = $(".breaking-news");
     breakingNews.append(breakingCard);
 }
