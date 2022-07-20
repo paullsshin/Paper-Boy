@@ -12,12 +12,12 @@ console.log(searchHistoryLength);
 function displaySearchHistory() {
     searchHistoryContainer.innerHTML = '';
     console.log(searchHistoryContainer);
-    if( searchHistoryLength > 3){
-      console.log("hi");
+    if( searchHistoryLength > 5){
+      //splice method deletes information inside first indicy of array to maintain max of 5 searches every reload
       searchHistory.splice(0, 1);
       console.log(searchHistoryLength)
       console.log(searchHistory);
-      console.log("hi");
+      
     }
     // Start at end of history array and count down to show the most recent at the top.
     for (var i = searchHistory.length - 1; i >= 0; i--) {
@@ -26,8 +26,18 @@ function displaySearchHistory() {
       // btn.setAttribute('aria-controls');
       btn.classList.add('history-btn', 'btn-history');
       console.log(searchHistory);
+
+      // //Trying to figure out how to turn local storage country btn's into news searches
+      // btn.addEventListener("click", function () {
+      //   alert("Button is clicked");
+      //   var search = btn.getAttribute('button');
+      //   selectCountry(search);
+      //   console.log(search)
+
+      // });
       // `data-search` allows access to city name when click handler is invoked
       btn.setAttribute('data-search', searchHistory[i]);
+      
       btn.textContent = searchHistory[i];
       searchHistoryContainer.append(btn);
       console.log(searchHistoryContainer);
