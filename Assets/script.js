@@ -5,7 +5,7 @@ var saveSearchHistory = JSON.parse(localStorage.getItem("search-history"));
 
 if (saveSearchHistory){
   searchHistory = saveSearchHistory;
-} 
+}
 
 // Function to display the search history list.
 function displaySearchHistory() {
@@ -41,6 +41,18 @@ function displaySearchHistory() {
     displaySearchHistory();
   }
 
+function handleSearchHistoryClick(e) {
+  // Don't do search if current elements is not a search history button
+  if (!e.target.matches('.history-btn')) {
+    return;
+  }
+
+  var btn = e.target;
+  var search = btn.getAttribute('button');
+  selectCountry(search);
+  console.log(search)
+}
+  
 // FREE NEWS API - BY COUNTRY
 const optionsFreeNews = {
 	method: 'GET',
