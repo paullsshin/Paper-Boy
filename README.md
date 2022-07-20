@@ -3,7 +3,7 @@
 <!-- deployed application -->
 ## **Description** 📚
 
-*Paper Boy* is an application designed for people who are interested in wanting to find out about events that are happening globally. Users can select any country from a drop-down menu. Once the user submits the request, news will be generated from that specific country enabling them to see up to 5 current events that are happening there. Also underneath the drop-down menu, there is a section for breaking news that the user will be able to see. In the "breaking-news" section the user will see a breaking-news article populate in red.
+*Paper Boy* is an application designed for people who are interested in wanting to find out about events that are happening globally. Users can select any country from a drop-down menu. Once the user submits the request, news will be generated from that specific country enabling them to see up to 10 current events that are happening there. Also underneath the drop-down menu, there is a section for breaking news that the user will be able to see. In the "breaking-news" section the user will see a breaking-news article populate in red.
 <hr>
 
 ## **Table of Contents** 📄
@@ -29,9 +29,14 @@ Visit our [repository](https://github.com/paullsshin/Paper-Boy) to reference: an
 * There will be glimpses of the article that the user can read.
 * If the user wants to look further into the article, there is an "article" link that they can click on.
 * There is a breaking news section that the user can also look at. They will also be able to click on the breaking news link as well if they want to see the full article.
+
+<p align="center">
+<img src ="Assets\IMG\PaperBoy News Service.gif" width="80%">
+</p>
+
 <hr>
 
-### **License**
+### **License** 💳
 
 MIT License
 
@@ -58,9 +63,9 @@ All testing was done by the developing team.
 <hr>
 
 ### **Contact** ☎
-* Sterling Cafrae - [Github](https://github.com/scarfrae)
-* Niklas Solomon - [Github](https://github.com/NiklasSolomon)
-* James Van Osdol - [Github](https://github.com/jvanosdol)
-* Nicholas Webb - [Github](https://github.com/Kingnick253)
-* Paull Shin - [Github](https://github.com/paullsshin)
+* Sterling Cafrae **-** [Github](https://github.com/scarfrae)**,** [LinkedIn](https://www.linkedin.com/in/sterling-carfrae-a2a8151a5/)
+* Niklas Solomon **-** [Github](https://github.com/NiklasSolomon)**,** [LinkedIn](https://www.linkedin.com/in/niklas-solomon-391147142)
+* James Van Osdol **-** [Github](https://github.com/jvanosdol)**,** [LinkedIn](https://www.linkedin.com/in/james-van-osdol-4a228b23b/)
+* Nicholas Webb **-** [Github](https://github.com/Kingnick253)**,** [LinkedIn](https://www.linkedin.com/in/nicholas-webb-954a1b239/)
+* Paull Shin **-** [Github](https://github.com/paullsshin)**,** [LinkedIn](https://www.linkedin.com/in/paull-shin-b3b0b410b/)
 ***
