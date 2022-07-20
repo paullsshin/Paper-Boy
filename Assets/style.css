@@ -1,64 +1,50 @@
-/* Sets up the color variables */
 root{
-    --dBlue: #1d3557; 
-    --mBlue: #45769d;
-    --lBlue: #a8dadc;
-    --white: #f1faee;
-    --red:   #e63946;
+    --dBlue: #1D3557;
+    --mBlue: #45769D;
+    --lBlue: #A8DADC;
+    --white: #F1FAEE;
+    --red:   #E63946;
 }
-
-
-
 .nav-wrapper{
-    
     display: flex;
     max-width: 100%;
     height: auto;
     justify-content: space-between;
-    
 }
-
 body {
-    background-color: #bdbdbd;
+    background-color: #BDBDBD;
 }
-
 main{
     margin: 2%;
 }
-
 .logo {
     display: flex;
     max-width: 100%;
     height: auto;
 }
-
- input[type=text] {  
-    padding: 6px;  
-    margin-top: 8px;  
-    font-size: 17px;  
-    border: none;  
- 
-    }  
-    .search-bar button {  
-      
-    padding: 8px;  
-    margin-top: 10px;  
-    margin-left: 10px;  
-    background: rgb(255, 13, 0);  
-    font-size: 20px;  
-    border: none;  
-    cursor: pointer;  
-    }  
-    .search-bar button:hover {  
-    background: blue;  
-    }  
-
+ input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    }
+    .search-bar button {
+    padding: 8px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background: rgb(255, 13, 0);
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    }
+    .search-bar button:hover {
+    background: blue;
+    }
 .row {
     font-size: 18px;
 }
-
 #paper-boy {
-    padding-top: 5%;
+    padding-top: 1%;
 }
 .history-btn {
     text-align: center;
@@ -67,11 +53,11 @@ main{
     margin: 0.5rem;
     width: 100%;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.4rem;
     border-radius: 0.3rem;
     border: 1px solid transparent;
     outline: none;
-    color: #1a1a1a;
-    background-color: #aeaeae;
+    color: white;
+    background-color: rgb(6, 202, 202);
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   }
