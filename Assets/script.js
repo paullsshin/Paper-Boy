@@ -1,21 +1,28 @@
 var searchHistory = [];
 var searchHistoryContainer = document.querySelector('#history');
+var saveSearchHistory = JSON.parse(localStorage.getItem("search-history"));
+if (saveSearchHistory){
+  searchHistory = saveSearchHistory;
+} 
 
 // Function to display the search history list.
 function renderSearchHistory() {
     searchHistoryContainer.innerHTML = '';
+    console.log(searchHistoryContainer);
   
     // Start at end of history array and count down to show the most recent at the top.
     for (var i = searchHistory.length - 1; i >= 0; i--) {
       var btn = document.createElement('button');
       btn.setAttribute('type', 'button');
-      btn.setAttribute('aria-controls');
+      // btn.setAttribute('aria-controls');
+      
       btn.classList.add('history-btn', 'btn-history');
-  
+      console.log(searchHistory);
       // `data-search` allows access to city name when click handler is invoked
       btn.setAttribute('data-search', searchHistory[i]);
       btn.textContent = searchHistory[i];
       searchHistoryContainer.append(btn);
+      console.log(searchHistoryContainer);
     }
   }
   
