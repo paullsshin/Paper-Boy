@@ -1,61 +1,44 @@
+// Declare variables
 var searchHistory = [];
 var searchHistoryContainer = document.querySelector('#history');
 var saveSearchHistory = JSON.parse(localStorage.getItem("search-history"));
+
 if (saveSearchHistory){
   searchHistory = saveSearchHistory;
 } 
 
 // Function to display the search history list.
-function renderSearchHistory() {
+function displaySearchHistory() {
     searchHistoryContainer.innerHTML = '';
-    console.log(searchHistoryContainer);
   
     // Start at end of history array and count down to show the most recent at the top.
     for (var i = searchHistory.length - 1; i >= 0; i--) {
       var btn = document.createElement('button');
-      btn.setAttribute('type', 'button');
-      // btn.setAttribute('aria-controls');
-      
-      btn.classList.add('history-btn', 'btn-history');
-      console.log(searchHistory);
-      // `data-search` allows access to city name when click handler is invoked
-      btn.setAttribute('data-search', searchHistory[i]);
-      btn.textContent = searchHistory[i];
-      searchHistoryContainer.append(btn);
-      console.log(searchHistoryContainer);
+        btn.setAttribute('type', 'button');      
+        btn.classList.add('history-btn');
+        btn.textContent = searchHistory[i];
+        searchHistoryContainer.append(btn);
     }
   }
   
-  // Function to update history in local storage then updates displayed history.
-  function appendToHistory(search) {
-    // If there is no search term return the function
+  // Store search history in local storage
+  function appendHistory(search) {
     if (searchHistory.indexOf(search) !== -1) {
       return;
     }
     searchHistory.push(search);
   
     localStorage.setItem('search-history', JSON.stringify(searchHistory));
-    renderSearchHistory();
+    displaySearchHistory();
   }
   
   // Function to get search history from local storage
-  function initSearchHistory() {
+  function getSearchHistory() {
     var storedHistory = localStorage.getItem('search-history');
     if (storedHistory) {
       searchHistory = JSON.parse(storedHistory);
     }
-    renderSearchHistory();
-  }
-
-  function handleSearchHistoryClick(e) {
-    // Don't do search if current elements is not a search history button
-    if (!e.target.matches('.btn-history')) {
-      return;
-    }
-  
-    var btn = e.target;
-    var search = btn.getAttribute('data-search');
-    selectCountry(search);
+    displaySearchHistory();
   }
 
 // FREE NEWS API - BY COUNTRY
@@ -66,8 +49,6 @@ const optionsFreeNews = {
 		'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
 	}
 };
-
-
 
 // var searchCountryName = document.get
 submitBtn.addEventListener('click', function () {
@@ -84,15 +65,11 @@ submitBtn.addEventListener('click', function () {
 
 var selectCountry = document.querySelector('select');
 var storedCountry = "";
-var result = '';
 
 selectCountry.addEventListener('change', () => {
   storedCountry = selectCountry.value;
   console.log(selectCountry)
-    console.log("Hello");
 })
-
-
 
 function renderFreeNews(data) {
     console.log(data);
@@ -123,15 +100,10 @@ function renderFreeNews(data) {
         </div>
        `
     newsByCountry.append(card);
-
-    
-    }
-
-    
+    } 
 }
 
 // BREAKING NEWS API
-
 const optionsBreakingNews = {
 	method: 'GET',
 	headers: {
@@ -143,83 +115,38 @@ const optionsBreakingNews = {
 function renderBreakingNews(data) {
     // For loop iterates through data
     console.log(data)
-    // var articles = [];
-    
-    
-    //recursive function might be easier
-    //could save everything into carasel ( might not be the case for materialize )
 
-
-    // future feature to be added in order to cycle through articles
-    //for (var i = 0; i < 1; i++ ) {
-        
-
-
-        var breakingCard = 
-        `
-         <!-- Turns the news container to a dark red -->
-          <div class="card red darken-3">
-            <div class="card-content white-text">
-              <span class="card-title">Breaking News!</span>
-              <p class ="breaking-news">${data[0].title}</p>
-            </div>
-            <div class="card-action">
-              <a href="${data[0].link}" target="blank">Go to Article</a>
-            </div>
+      var breakingCard = 
+      `
+        <!-- Turns the news container to a dark red -->
+        <div class="card red darken-3">
+          <div class="card-content white-text">
+            <span class="card-title">Breaking News!</span>
+            <p class ="breaking-news">${data[0].title}</p>
           </div>
-        `
-    //}
+          <div class="card-action">
+            <a href="${data[0].link}" target="blank">Go to Article</a>
+          </div>
+        </div>
+      `
     console.log(breakingCard)
     var breakingNews = $(".breaking-news");
     breakingNews.append(breakingCard);
 }
 
-// window.addEventListener('load', function () {
-//     fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', optionsBreakingNews)
-// 	    .then(response => response.json())
-// 	    .then(response => renderBreakingNews(response))
-//         .then(response => console.log(response))  
-// });
-
-
-// var breakingNews = document.getElementById("breaking-news");
-// submitBtn.addEventListener('click', function () {
-    
-// });
-
-
-
-
 function getBreakingNews() {
 
-    fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', optionsBreakingNews)
-	    .then(response => response.json())
-	    .then(response => renderBreakingNews(response))
-	    .catch(err => console.error(err));
+  fetch('https://google-top-news.p.rapidapi.com/news/breaking%20news?images=true', optionsBreakingNews)
+    .then(response => response.json())
+    .then(response => renderBreakingNews(response))
+    .catch(err => console.error(err));
 
 }
-
-
-
-
-getBreakingNews();
-
-// var favoriteBtn = document.getElementsByClassName(".favorite-button")
-
-// favoriteBtn.addEventListener('click', function () {
-//     console.log("button click");
-// });
-
-// clicking on favorite, set eventlistener to capture article data etc.,
-// save data to local storage, pull data from local storage and then render to favorites page
-// 
 
 document.getElementById("submitBtn").onclick = function () {
   document.getElementById("paper-boy").style.display = "none";
 }
-// document.getElementById("start-it").onclick = function () {
-//   document.getElementById("welcome").style.visibility = "hidden";
-// }
 
-initSearchHistory();
+getBreakingNews();
+getSearchHistory();
 searchHistoryContainer.addEventListener('click', handleSearchHistoryClick);
