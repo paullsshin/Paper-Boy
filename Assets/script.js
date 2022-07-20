@@ -4,11 +4,7 @@ var saveSearchHistory = JSON.parse(localStorage.getItem("search-history"));
 if (saveSearchHistory){
   searchHistory = saveSearchHistory;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
+
 var searchHistoryLength = searchHistory.length;
 console.log(searchHistoryLength);
 // Function to display the search history list.
@@ -22,21 +18,12 @@ function renderSearchHistory() {
       console.log(searchHistory);
       console.log("hi");
     }
-<<<<<<< HEAD
-=======
-=======
+
 // Function to display the search history list.
 function renderSearchHistory() {
     searchHistoryContainer.innerHTML = '';
     // console.log(searchHistoryContainer);
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
-=======
-// Function to display the search history list.
-function renderSearchHistory() {
-    searchHistoryContainer.innerHTML = '';
-    // console.log(searchHistoryContainer);
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
->>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
+
     // Start at end of history array and count down to show the most recent at the top.
     for (var i = searchHistory.length[9] - 1; i >= 0; i--) {
       var btn = document.createElement('button');
@@ -93,21 +80,16 @@ submitBtn.addEventListener('click', function () {
     // console.log(searchHistory);
     localStorage.setItem('search-history', JSON.stringify(searchHistory));
     fetch('https://free-news.p.rapidapi.com/v1/search?q=' + storedCountry + '&lang=en', optionsFreeNews)
-  .then(response => response.json())
-  .then(response => renderFreeNews(response))
-<<<<<<< HEAD
+  .then(response => response.json());
+  .then(response => renderFreeNews(response));
   .catch(err => console.error(err));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   .catch(err => console.error(err));
-=======
+
   // .catch(err => console.error(err));
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
-=======
+
   // .catch(err => console.error(err));
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
->>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
+
 });
 var selectCountry = document.querySelector('select');
 var storedCountry = "";
@@ -118,36 +100,17 @@ selectCountry.addEventListener('change', () => {
   //   console.log("Hello");
 })
 function renderFreeNews(data) {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     console.log(data);
-<<<<<<< HEAD
-=======
-=======
+
     // console.log(data);
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
-=======
-    // console.log(data);
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
->>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
+
     //prints title to each card
     var newsByCountry = $(".free-news-container");
     newsByCountry.html("");
     //prints content to each card
     for (var i = 0; i < 10; i++ ) {
-<<<<<<< HEAD
-        var card =
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        var card =
-=======
-=======
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
 
-        var card = 
->>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
->>>>>>> 6ea27b39ecc73d49561588cd75a2a6c479a13cdb
         `
         <div class="row">
           <div class="col">
