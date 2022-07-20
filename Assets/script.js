@@ -5,6 +5,7 @@ if (saveSearchHistory){
   searchHistory = saveSearchHistory;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 var searchHistoryLength = searchHistory.length;
 console.log(searchHistoryLength);
 // Function to display the search history list.
@@ -18,6 +19,12 @@ function renderSearchHistory() {
       console.log(searchHistory);
       console.log("hi");
     }
+=======
+// Function to display the search history list.
+function renderSearchHistory() {
+    searchHistoryContainer.innerHTML = '';
+    // console.log(searchHistoryContainer);
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
 =======
 // Function to display the search history list.
 function renderSearchHistory() {
@@ -83,7 +90,11 @@ submitBtn.addEventListener('click', function () {
   .then(response => response.json())
   .then(response => renderFreeNews(response))
 <<<<<<< HEAD
+<<<<<<< HEAD
   .catch(err => console.error(err));
+=======
+  // .catch(err => console.error(err));
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
 =======
   // .catch(err => console.error(err));
 >>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
@@ -98,7 +109,11 @@ selectCountry.addEventListener('change', () => {
 })
 function renderFreeNews(data) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log(data);
+=======
+    // console.log(data);
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
 =======
     // console.log(data);
 >>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
@@ -108,8 +123,11 @@ function renderFreeNews(data) {
     //prints content to each card
     for (var i = 0; i < 10; i++ ) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         var card =
 =======
+=======
+>>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
 
         var card = 
 >>>>>>> 0f6a99e3478dcdec49b095e7b60b3556a7e9d00e
