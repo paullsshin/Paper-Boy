@@ -11,9 +11,15 @@ root{
     height: auto;
     justify-content: space-between;
 }
+
 body {
-    background-color: #BDBDBD;
+    /* background-color: #BDBDBD; */
+    background-image: url(https://cdn.pixabay.com/photo/2015/02/15/09/33/news-636978_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
 main{
     margin: 2%;
 }
@@ -61,3 +67,8 @@ main{
     background-color: rgb(6, 202, 202);
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   }
+  
+  #paper-boy {
+    padding-top: 1%;
+    opacity: 90%;
+}
